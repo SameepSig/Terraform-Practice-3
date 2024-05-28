@@ -47,3 +47,14 @@ module "rt_association" {
     sameep_terraform_subnet_1 = module.subnet.public_subnet_1
     sameep_terraform_subnet_2 = module.subnet.public_subnet_2
 }
+
+module "alb" {
+    source = "./modules/alb"
+    sg_id = module.security_group.security_group_id
+    public_subnet_1 = module.subnet.public_subnet_1
+    public_subnet_2 = module.subnet.public_subnet_2
+    ec2_id_1 = module.ec2.ec2_id_1
+    ec2_id_2 = module.ec2.ec2_id_2
+    vpc_id = module.vpc.sameep_terraform_vpc
+    # subnet_id = module.subnet.public_subnet_1
+}
