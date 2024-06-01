@@ -15,7 +15,7 @@ resource "aws_lb" "sameep_aws_alb" {
   # }
 
   tags = {
-    Environment = "production"
+    Environment = "development"
   }
 }
 
